@@ -178,12 +178,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="fKE-0P-NYc">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fKE-0P-NYc">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="fKE-0P-NYc" firstAttribute="leading" secondItem="g5a-7S-8Mu" secondAttribute="leading" id="QgQ-K9-qtD"/>
+                            <constraint firstItem="fKE-0P-NYc" firstAttribute="top" secondItem="g5a-7S-8Mu" secondAttribute="top" id="UbI-v5-AeW"/>
+                            <constraint firstItem="5oT-rH-jyl" firstAttribute="top" secondItem="fKE-0P-NYc" secondAttribute="bottom" id="dpZ-3D-cuf"/>
+                            <constraint firstAttribute="trailing" secondItem="fKE-0P-NYc" secondAttribute="trailing" id="tg9-JQ-tbw"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Bec-CW-Ccj"/>
                     <connections>
