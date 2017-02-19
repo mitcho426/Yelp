@@ -11,9 +11,13 @@ import UIKit
 class BusinessesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, UIScrollViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
+    
     var businesses: [Business]!
     var filteredBusinesses: [Business]!
+    var business: Business?
+    
     let searchBar = UISearchBar()
+    var searchTerm: String?
     
     var isMoreDataLoading = false
     var loadingMoreView: InfiniteScrollActivityView?
@@ -24,14 +28,17 @@ class BusinessesViewController: UIViewController, UITableViewDataSource, UITable
         
         self.navigationController?.navigationBar.barTintColor = UIColor.red
         
+        //Set tableview height
         tableView.delegate = self
         tableView.dataSource = self
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 120
-        searchBar.delegate = self
         
+        //Adding search bar to navi bar
+        searchBar.delegate = self
         searchBar.sizeToFit()
         navigationItem.titleView = searchBar
+        searchTerm = "Pizza"
         
         let frame = CGRect(x: 0, y: tableView.contentSize.height, width: tableView.bounds.size.width, height: InfiniteScrollActivityView.defaultHeight)
         loadingMoreView = InfiniteScrollActivityView(frame: frame)
@@ -72,8 +79,6 @@ class BusinessesViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     func loadData() {
-//        self.offset = self.offset + 20
-        
 //        Business.searchWithTerm("Restaurants", sort: .Distance, categories: ["asianfusion", "burgers"], deals: true) { (businesses: [Business]!, error: NSError!) -> Void in
 //            self.businesses = businesses
 //            
@@ -82,7 +87,7 @@ class BusinessesViewController: UIViewController, UITableViewDataSource, UITable
 //                print(business.address!)
 //            }
 //        }
-        Business.searchWithTerm(term: "Thai", completion: { (businesses: [Business]?, error: Error?) -> Void in
+        Business.searchWithTerm(term: searchTerm!, completion: { (businesses: [Business]?, error: Error?) -> Void in
             
             self.businesses = businesses
             self.filteredBusinesses = self.businesses
@@ -101,8 +106,9 @@ class BusinessesViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     func loadMoreData() {
-              self.offset = self.offset + 20
         
+        self.offset = self.offset + 20
+    
         //        Business.searchWithTerm("Restaurants", sort: .Distance, categories: ["asianfusion", "burgers"], deals: true) { (businesses: [Business]!, error: NSError!) -> Void in
         //            self.businesses = businesses
         //
@@ -111,15 +117,21 @@ class BusinessesViewController: UIViewController, UITableViewDataSource, UITable
         //                print(business.address!)
         //            }
         //        }
-        Business.searchWithTerm(term: "Thai", completion: { (businesses: [Business]?, error: Error?) -> Void in
+        Business.searchWithTerm(term: searchTerm!, completion: { (businesses: [Business]?, error: Error?) -> Void in
+
             
-            self.businesses = businesses
+            self.businesses?.append(contentsOf: businesses!)
             self.filteredBusinesses = self.businesses
-            
             self.isMoreDataLoading = false
-            self.loadingMoreView!.stopAnimating()
             self.tableView.reloadData()
             
+//            self.businesses = businesses
+//            self.filteredBusinesses = self.businesses
+//            
+//            self.isMoreDataLoading = false
+//            self.loadingMoreView!.stopAnimating()
+//            self.tableView.reloadData()
+//            
             if let businesses = businesses {
                 for business in businesses {
                     print("Name: \(business.name!)")
@@ -128,7 +140,7 @@ class BusinessesViewController: UIViewController, UITableViewDataSource, UITable
             }
         }
         )
-        self.tableView.reloadData()
+//       self.tableView.reloadData()
         
     }
     
@@ -154,24 +166,6 @@ class BusinessesViewController: UIViewController, UITableViewDataSource, UITable
         }
     }
     
-//    func loadMoreData() {
-//        
-//        // ... Create the NSURLRequest (myRequest) ...
-//        
-//        // Configure session so that completion handler is executed on main UI thread
-//        let session = URLSession(
-//            configuration: URLSessionConfiguration.default,
-//            delegate:nil,
-//            delegateQueue:OperationQueue.main
-//        )
-//        
-//        let task : URLSessionDataTask = session.dataTaskWithRequest(myRequest,completionHandler: { (data, response, error) in
-//            self.isMoreDataLoading = false
-//            self.loadingMoreView!.stopAnimating()
-//            self.myTableView.reloadData()
-//        })
-//        task.resume()
-//    }
     /*
      // MARK: - Navigation
      

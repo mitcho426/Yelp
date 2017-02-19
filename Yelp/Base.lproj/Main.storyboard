@@ -9,6 +9,47 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Filter-->
+        <scene sceneID="AE8-bb-d8U">
+            <objects>
+                <viewController id="Hb1-qk-Xbz" customClass="FilterViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="YZz-VI-cLJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="vzb-rN-Rik"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="7O6-EW-r9P">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="XF4-Lh-UA4">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="pHU-ZS-Ub4">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pHU-ZS-Ub4" id="UuG-Ou-78F">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="vzb-rN-Rik" firstAttribute="top" secondItem="XF4-Lh-UA4" secondAttribute="bottom" id="CPh-uT-foj"/>
+                            <constraint firstItem="XF4-Lh-UA4" firstAttribute="top" secondItem="7O6-EW-r9P" secondAttribute="top" id="KQV-FB-gK1"/>
+                            <constraint firstItem="XF4-Lh-UA4" firstAttribute="leading" secondItem="7O6-EW-r9P" secondAttribute="leading" id="luH-90-l8m"/>
+                            <constraint firstAttribute="trailing" secondItem="XF4-Lh-UA4" secondAttribute="trailing" id="qF6-tv-57Q"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Filter" id="7J7-UO-350"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dqB-Rz-tjy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="833" y="791"/>
+        </scene>
         <!--Yelp-->
         <scene sceneID="5L9-Uz-lNK">
             <objects>
@@ -133,7 +174,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Yelp" id="fOl-CO-rcZ">
-                        <barButtonItem key="leftBarButtonItem" title="Filter" id="wuD-le-OKX"/>
+                        <barButtonItem key="leftBarButtonItem" title="Filter" id="wuD-le-OKX">
+                            <connections>
+                                <segue destination="Hb1-qk-Xbz" kind="push" id="8wA-yH-wf0"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Map" id="IeP-c8-xzQ">
                             <connections>
                                 <segue destination="Y5y-c8-qNM" kind="push" id="Ek8-lm-wox"/>
@@ -166,7 +211,7 @@
             </objects>
             <point key="canvasLocation" x="1236" y="75"/>
         </scene>
-        <!--Map View Controller-->
+        <!--Map-->
         <scene sceneID="uVd-kf-rLp">
             <objects>
                 <viewController id="Y5y-c8-qNM" customClass="MapViewController" customModule="Yelp" customModuleProvider="target" sceneMemberID="viewController">
@@ -190,7 +235,7 @@
                             <constraint firstAttribute="trailing" secondItem="fKE-0P-NYc" secondAttribute="trailing" id="tg9-JQ-tbw"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="Bec-CW-Ccj"/>
+                    <navigationItem key="navigationItem" title="Map" id="Bec-CW-Ccj"/>
                     <connections>
                         <outlet property="mapView" destination="fKE-0P-NYc" id="rtW-6v-tXx"/>
                     </connections>

@@ -11,6 +11,7 @@
 		1DA984831E5805EE00B490D1 /* InfiniteScrollActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA984821E5805EE00B490D1 /* InfiniteScrollActivityView.swift */; };
 		1DA984851E58151C00B490D1 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA984841E58151C00B490D1 /* MapViewController.swift */; };
 		1DA984871E58264800B490D1 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1DA984861E58264800B490D1 /* Default-568h@2x.png */; };
+		1DA984891E594FA200B490D1 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA984881E594FA200B490D1 /* FilterViewController.swift */; };
 		222D8A5B19CCF9F900D2DB53 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222D8A5A19CCF9F900D2DB53 /* AppDelegate.swift */; };
 		222D8A6019CCF9F900D2DB53 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 222D8A5E19CCF9F900D2DB53 /* Main.storyboard */; };
 		222D8A6219CCF9F900D2DB53 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 222D8A6119CCF9F900D2DB53 /* Images.xcassets */; };
@@ -39,6 +40,7 @@
 		1DA984821E5805EE00B490D1 /* InfiniteScrollActivityView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfiniteScrollActivityView.swift; sourceTree = "<group>"; };
 		1DA984841E58151C00B490D1 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		1DA984861E58264800B490D1 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		1DA984881E594FA200B490D1 /* FilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
 		222D8A5519CCF9F900D2DB53 /* Yelp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Yelp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		222D8A5919CCF9F900D2DB53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		222D8A5A19CCF9F900D2DB53 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 			children = (
 				22AAAA9B1AEA1EC300A544AF /* BusinessesViewController.swift */,
 				1DA984841E58151C00B490D1 /* MapViewController.swift */,
+				1DA984881E594FA200B490D1 /* FilterViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -402,6 +405,7 @@
 			files = (
 				1DA984831E5805EE00B490D1 /* InfiniteScrollActivityView.swift in Sources */,
 				1D9E5C8B1E518E5800851636 /* BusinessCell.swift in Sources */,
+				1DA984891E594FA200B490D1 /* FilterViewController.swift in Sources */,
 				22AAAA9C1AEA1EC300A544AF /* BusinessesViewController.swift in Sources */,
 				22AAAA991AEA0A9700A544AF /* Business.swift in Sources */,
 				222D8A7D19CCFAE000D2DB53 /* YelpClient.swift in Sources */,
