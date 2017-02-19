@@ -38,7 +38,7 @@ class BusinessesViewController: UIViewController, UITableViewDataSource, UITable
         searchBar.delegate = self
         searchBar.sizeToFit()
         navigationItem.titleView = searchBar
-        searchTerm = "Pizza"
+        searchTerm = "Chinese"
         
         let frame = CGRect(x: 0, y: tableView.contentSize.height, width: tableView.bounds.size.width, height: InfiniteScrollActivityView.defaultHeight)
         loadingMoreView = InfiniteScrollActivityView(frame: frame)
@@ -79,15 +79,7 @@ class BusinessesViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     func loadData() {
-//        Business.searchWithTerm("Restaurants", sort: .Distance, categories: ["asianfusion", "burgers"], deals: true) { (businesses: [Business]!, error: NSError!) -> Void in
-//            self.businesses = businesses
-//            
-//            for business in businesses {
-//                print(business.name!)
-//                print(business.address!)
-//            }
-//        }
-        Business.searchWithTerm(term: searchTerm!, completion: { (businesses: [Business]?, error: Error?) -> Void in
+        Business.searchWithTerm(term: searchTerm!, offset: 0, completion: { (businesses: [Business]?, error: Error?) -> Void in
             
             self.businesses = businesses
             self.filteredBusinesses = self.businesses
@@ -108,30 +100,14 @@ class BusinessesViewController: UIViewController, UITableViewDataSource, UITable
     func loadMoreData() {
         
         self.offset = self.offset + 20
-    
-        //        Business.searchWithTerm("Restaurants", sort: .Distance, categories: ["asianfusion", "burgers"], deals: true) { (businesses: [Business]!, error: NSError!) -> Void in
-        //            self.businesses = businesses
-        //
-        //            for business in businesses {
-        //                print(business.name!)
-        //                print(business.address!)
-        //            }
-        //        }
-        Business.searchWithTerm(term: searchTerm!, completion: { (businesses: [Business]?, error: Error?) -> Void in
 
+        Business.searchWithTerm(term: searchTerm!, offset: offset, completion: { (businesses: [Business]?, error: Error?) -> Void in
             
             self.businesses?.append(contentsOf: businesses!)
             self.filteredBusinesses = self.businesses
             self.isMoreDataLoading = false
             self.tableView.reloadData()
             
-//            self.businesses = businesses
-//            self.filteredBusinesses = self.businesses
-//            
-//            self.isMoreDataLoading = false
-//            self.loadingMoreView!.stopAnimating()
-//            self.tableView.reloadData()
-//            
             if let businesses = businesses {
                 for business in businesses {
                     print("Name: \(business.name!)")
@@ -140,8 +116,6 @@ class BusinessesViewController: UIViewController, UITableViewDataSource, UITable
             }
         }
         )
-//       self.tableView.reloadData()
-        
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
