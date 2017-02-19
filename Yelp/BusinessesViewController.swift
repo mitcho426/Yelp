@@ -17,9 +17,12 @@ class BusinessesViewController: UIViewController, UITableViewDataSource, UITable
     
     var isMoreDataLoading = false
     var loadingMoreView: InfiniteScrollActivityView?
+    var offset: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationController?.navigationBar.barTintColor = UIColor.red
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -98,7 +101,7 @@ class BusinessesViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     func loadMoreData() {
-        //        self.offset = self.offset + 20
+              self.offset = self.offset + 20
         
         //        Business.searchWithTerm("Restaurants", sort: .Distance, categories: ["asianfusion", "burgers"], deals: true) { (businesses: [Business]!, error: NSError!) -> Void in
         //            self.businesses = businesses
